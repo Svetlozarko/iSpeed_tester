@@ -1,3 +1,9 @@
+mod network;
+use network::download::measure_download;
+
 fn main() {
-    println!("Hello, world!");
+    match measure_download() {
+        Ok(speed) => println!(" Download speed: {:.2} Mbps", speed),
+        Err(e) => println!(" Download failed: {}", e),
+    }
 }
